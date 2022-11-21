@@ -149,7 +149,7 @@ app.get("/", function (request, response) {
 });
 
 app.get("/getdata", async function(request, response){
-  const collections = await client.db("Webcode2_0").collection("products").find({});
+  const collections = await client.db("Webcode2_0").collection("products").find();
   response.send({collections})
 })
 
