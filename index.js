@@ -148,6 +148,11 @@ app.get("/", function (request, response) {
   response.send("🙋‍♂️, 🌏 🎊✨🤩");
 });
 
+app.get("/getdata", async function(request, response){
+  const collections = await client.db("Webcode2_0").collection("products").find();
+  response.send({collections})
+})
+
 app.post("/postdata", async function(request, response){
   const collections = await client.db("Webcode2_0").collection("products").insertMany(data);
   response.send({msg:"data uploaded", collections: collections})
